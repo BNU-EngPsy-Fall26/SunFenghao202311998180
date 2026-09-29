@@ -1,0 +1,10 @@
+{
+  "name": "ember-watch-sdt-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "火线值守：纯前端信号检测论交互实验",
+  "scripts": {
+    "test": "node tests/run-tests.js"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="火线值守：基于信号检测论的卫星山火早期预警交互实验。">
+  <title>火线值守 · 卫星山火预警实验</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/sdt.js"></script>
+  <script defer src="js/charts.js"></script>
+  <script defer src="js/game.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="brand" href="#" data-action="home" aria-label="返回火线值守首页">
+      <span class="brand-mark" aria-hidden="true"><i></i></span>
+      <span><b>火线值守</b><small>EMBER WATCH</small></span>
+    </a>
+    <div class="header-status" aria-label="系统状态">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span>卫星链路正常</span>
+      <span class="header-coord">CN-FIRE / ORBIT 07</span>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="screen is-active" id="screen-home" aria-labelledby="homeTitle">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">信号检测论 · 交互式实验</p>
+          <h1 id="homeTitle">在火势被看见之前，<br><span>先辨认信号。</span></h1>
+          <p class="hero-lead">你将担任卫星山火预警值守员。在云层、地表热源和传感器噪声中，判断短暂出现的异常是否值得发布火情预警。</p>
+          <div class="hero-actions">
+            <button class="button button-primary" data-action="open-briefing">接受值守任务</button>
+            <button class="text-button" data-action="open-method">先了解实验原理 <span aria-hidden="true">↗</span></button>
+          </div>
+          <dl class="mission-facts" aria-label="实验概要">
+            <div><dt>试次数</dt><dd>30</dd></div>
+            <div><dt>刺激时长</dt><dd>1.5 s</dd></div>
+            <div><dt>核心指标</dt><dd>H / M / FA / CR</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-instrument" aria-label="卫星监测预览">
+          <div class="instrument-topline">
+            <span>LIVE PREVIEW</span><span>29.41°N / 102.18°E</span>
+          </div>
+          <canvas id="heroCanvas" width="860" height="560" aria-label="程序生成的卫星地形预览"></canvas>
+          <div class="orbit-line" aria-hidden="true"><span></span></div>
+          <div class="instrument-note">
+            <span class="mini-tag">热异常候选</span>
+            <p>真实火点与环境干扰会产生重叠的感知证据。你看到的越模糊，两个分布就越难分开。</p>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span>任务简报</div>
+    </section>
+
+    <section class="screen" id="screen-briefing" aria-labelledby="briefingTitle">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MISSION BRIEF / 任务简报</p>
+            <h2 id="briefingTitle">先设定条件，再进入轨道扫描</h2>
+          </div>
+          <button class="icon-button" data-action="home" aria-label="返回首页">×</button>
+        </div>
+
+        <div class="briefing-layout">
+          <div class="briefing-main">
+            <article class="definition-panel">
+              <div class="definition-item signal-def">
+                <span class="definition-icon" aria-hidden="true">▲</span>
+                <div><p class="label">信号 S</p><h3>真实早期火情</h3><p>卫星像元出现由燃烧产生的热异常或细小烟柱。</p></div>
+              </div>
+              <div class="definition-divider" aria-hidden="true">VS</div>
+              <div class="definition-item noise-def">
+                <span class="definition-icon" aria-hidden="true">≋</span>
+                <div><p class="label">噪音 N</p><h3>环境与传感器干扰</h3><p>云影、薄雾、工业热源、裸岩反光或随机测量波动。</p></div>
+              </div>
+            </article>
+
+            <article class="outcomes-panel">
+              <div class="panel-title"><span>行动结果</span><small>每次判断都会落入以下四类之一</small></div>
+              <div class="outcome-grid">
+                <div class="outcome-card hit"><b>H</b><div><strong>击中</strong><span>有火情，并发布预警</span></div><em>+100</em></div>
+                <div class="outcome-card miss"><b>M</b><div><strong>漏报</strong><span>有火情，却判为干扰</span></div><em>−220</em></div>
+                <div class="outcome-card false-alarm"><b>FA</b><div><strong>误报</strong><span>无火情，却发布预警</span></div><em>−60</em></div>
+                <div class="outcome-card correct"><b>CR</b><div><strong>正确拒斥</strong><span>无火情，并判为干扰</span></div><em>+25</em></div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="control-panel" aria-label="实验参数设置">
+            <div class="control-panel-head"><span>实验参数</span><small>PARAMETERS</small></div>
+
+            <fieldset class="control-group">
+              <legend>火情先验概率 P(S)</legend>
+              <div class="segmented" id="prevalenceOptions">
+                <button type="button" data-prevalence="0.2"><b>20%</b><small>稀有警报</small></button>
+                <button type="button" data-prevalence="0.3" class="is-selected"><b>30%</b><small>标准任务</small></button>
+                <button type="button" data-prevalence="0.5"><b>50%</b><small>训练模式</small></button>
+              </div>
+              <p class="control-help" id="prevalenceHelp">30 次中固定安排 9 次真实火情，再随机打乱。</p>
+            </fieldset>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="difficultySlider">系统敏感性 d′</label>
+                <output id="difficultyValue" for="difficultySlider">1.6</output>
+              </div>
+              <input id="difficultySlider" type="range" min="0.8" max="2.8" value="1.6" step="0.1">
+              <div class="range-labels"><span>困难 · 分布重叠</span><span>简单 · 分布分离</span></div>
+            </div>
+
+            <div class="mission-summary">
+              <div><span>试次</span><strong>30</strong></div>
+              <div><span>限时</span><strong>1.5 s</strong></div>
+              <div><span>反馈</span><strong>即时</strong></div>
+            </div>
+
+            <button class="button button-primary button-block" data-action="start-game">进入卫星扫描</button>
+            <p class="keyboard-tip">键盘：<kbd>F</kbd> 发布预警 · <kbd>J</kbd> 判定干扰</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen game-screen" id="screen-game" aria-labelledby="gameTitle">
+      <div class="game-shell">
+        <div class="game-topbar">
+          <div>
+            <p class="eyebrow">ORBITAL WATCH / 实时值守</p>
+            <h2 id="gameTitle">西南林区 · 轨道扫描 07</h2>
+          </div>
+          <div class="game-readouts">
+            <div><span>进度</span><strong><i id="trialCurrent">0</i> / 30</strong></div>
+            <div><span>任务得分</span><strong id="gameScore">0</strong></div>
+            <div><span>火情先验</span><strong id="gamePrevalence">30%</strong></div>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-label="实验进度"><span id="progressFill"></span></div>
+
+        <div class="game-stage">
+          <canvas id="gameCanvas" width="1100" height="610" aria-label="卫星山火监测画面"></canvas>
+          <div class="scan-reticle" aria-hidden="true"><i></i></div>
+          <div class="stage-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="phase-chip" id="phaseChip" aria-live="polite">等待轨道数据</div>
+          <div class="feedback-overlay" id="feedbackOverlay" aria-live="assertive">
+            <span id="feedbackCode">HIT</span>
+            <strong id="feedbackTitle">火点确认</strong>
+            <p id="feedbackText">预警链已启动</p>
+          </div>
+          <div class="decision-dock" id="decisionDock" aria-hidden="true">
+            <p>刚才的候选区域是否需要发布火情预警？</p>
+            <div>
+              <button class="decision-button alert-button" data-response="signal"><span class="key">F</span><b>发布火情预警</b><small>我判断存在真实火点</small></button>
+              <button class="decision-button clear-button" data-response="noise"><span class="key">J</span><b>判定为环境干扰</b><small>我判断没有真实火点</small></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="live-outcomes" aria-label="当前结果统计">
+          <span><b id="liveH">0</b> 击中</span>
+          <span><b id="liveM">0</b> 漏报</span>
+          <span><b id="liveFA">0</b> 误报</span>
+          <span><b id="liveCR">0</b> 正确拒斥</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen report-screen" id="screen-report" aria-labelledby="reportTitle">
+      <div class="report-shell">
+        <header class="report-header">
+          <div>
+            <p class="eyebrow">POST-MISSION ANALYSIS / 任务复盘</p>
+            <h2 id="reportTitle">信号检测统计报告</h2>
+            <p id="reportSubtitle">30 次判断 · P(S)=0.30 · 系统 d′=1.6</p>
+          </div>
+          <div class="report-stamp"><span>分析状态</span><strong>COMPLETE</strong></div>
+        </header>
+
+        <section class="report-summary" aria-labelledby="summaryTitle">
+          <div>
+            <p class="section-kicker">EXECUTIVE SUMMARY</p>
+            <h3 id="summaryTitle">你更像一名<span id="strategyLabel">平衡型</span>值守员</h3>
+            <p id="strategyNarrative">你的判定标准接近中性。敏感性反映你能否分清信号，标准反映你是否倾向于发布预警。</p>
+          </div>
+          <div class="score-seal"><span>任务得分</span><strong id="reportScore">0</strong><small>points</small></div>
+        </section>
+
+        <section class="metric-strip" aria-label="核心SDT指标">
+          <article><span>击中率</span><strong id="metricPH">—</strong><small>P(H)</small></article>
+          <article><span>误报率</span><strong id="metricPFA">—</strong><small>P(FA)</small></article>
+          <article class="primary-metric"><span>敏感性</span><strong id="metricD">—</strong><small>d′</small></article>
+          <article><span>判定标准</span><strong id="metricC">—</strong><small>c</small></article>
+          <article><span>准确率</span><strong id="metricAccuracy">—</strong><small>accuracy</small></article>
+        </section>
+
+        <div class="report-grid">
+          <section class="report-card matrix-card" aria-labelledby="matrixTitle">
+            <div class="report-card-head"><div><p class="section-kicker">OBSERVED COUNTS</p><h3 id="matrixTitle">混淆矩阵</h3></div><span>实际状态 →</span></div>
+            <table class="confusion-table">
+              <thead><tr><th scope="col">你的判断 ↓</th><th scope="col">有火情</th><th scope="col">无火情</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">发布预警</th><td class="hit-cell"><span>击中 H</span><strong id="countH">0</strong></td><td class="fa-cell"><span>误报 FA</span><strong id="countFA">0</strong></td></tr>
+                <tr><th scope="row">判定干扰</th><td class="miss-cell"><span>漏报 M</span><strong id="countM">0</strong></td><td class="cr-cell"><span>正确拒斥 CR</span><strong id="countCR">0</strong></td></tr>
+              </tbody>
+            </table>
+            <p class="method-note">表中概率显示原始比率；d′ 与 c 使用 log-linear correction，避免 0 或 1 造成无限 z 值。</p>
+          </section>
+
+          <section class="report-card chart-card" aria-labelledby="distributionTitle">
+            <div class="report-card-head"><div><p class="section-kicker">SENSITIVITY &amp; CRITERION</p><h3 id="distributionTitle">证据分布与判定标准</h3></div><div class="chart-legend"><span class="noise-key">噪音 N</span><span class="signal-key">信号 SN</span></div></div>
+            <canvas id="distributionChart" width="760" height="400" aria-label="噪音与信号分布图"></canvas>
+          </section>
+
+          <section class="report-card chart-card" aria-labelledby="rocTitle">
+            <div class="report-card-head"><div><p class="section-kicker">RECEIVER OPERATING CHARACTERISTIC</p><h3 id="rocTitle">ROC 曲线</h3></div><span id="aucLabel">AUC —</span></div>
+            <canvas id="rocChart" width="760" height="400" aria-label="ROC曲线与当前表现点"></canvas>
+          </section>
+
+          <section class="report-card formula-card" aria-labelledby="formulaTitle">
+            <div class="report-card-head"><div><p class="section-kicker">CALCULATION</p><h3 id="formulaTitle">计算依据</h3></div><span>等方差 SDT</span></div>
+            <div class="formula-line"><span>修正击中率</span><code>H<sub>c</sub> = (H + 0.5) / (H + M + 1)</code><b id="correctedPH">—</b></div>
+            <div class="formula-line"><span>修正误报率</span><code>FA<sub>c</sub> = (FA + 0.5) / (FA + CR + 1)</code><b id="correctedPFA">—</b></div>
+            <div class="formula-line"><span>敏感性</span><code>d′ = z(H<sub>c</sub>) − z(FA<sub>c</sub>)</code><b id="formulaD">—</b></div>
+            <div class="formula-line"><span>判定标准</span><code>c = −0.5 × [z(H<sub>c</sub>) + z(FA<sub>c</sub>)]</code><b id="formulaC">—</b></div>
+            <div class="interpretation-box"><b>怎么读？</b><p><strong>d′</strong> 越大，越能区分火情和干扰；<strong>c</strong> 为正表示谨慎，为负表示宽松。准确率无法把这两件事分开。</p></div>
+          </section>
+        </div>
+
+        <section class="criterion-lab" aria-labelledby="criterionLabTitle">
+          <div class="criterion-copy">
+            <p class="section-kicker">INTERACTIVE CONCEPT LAB</p>
+            <h3 id="criterionLabTitle">移动标准，观察漏报与误报如何交换</h3>
+            <p>保持系统 d′ 不变，只移动判定标准。更宽松会提高击中率，也会带来更多误报；更谨慎则相反。</p>
+            <label for="criterionSlider">模拟判定标准 c</label>
+            <div class="criterion-control"><span>宽松</span><input id="criterionSlider" type="range" min="-1.5" max="1.5" value="0" step="0.05"><span>谨慎</span></div>
+          </div>
+          <div class="criterion-readout">
+            <div><span>c</span><strong id="simC">0.00</strong></div>
+            <div><span>预计 P(H)</span><strong id="simPH">—</strong></div>
+            <div><span>预计 P(FA)</span><strong id="simPFA">—</strong></div>
+          </div>
+          <canvas id="criterionChart" width="980" height="300" aria-label="可交互的判定标准分布图"></canvas>
+        </section>
+
+        <section class="history-section" aria-labelledby="historyTitle">
+          <div class="section-heading compact">
+            <div><p class="section-kicker">ROUND COMPARISON</p><h3 id="historyTitle">多轮表现对比</h3></div>
+            <span>仅保存在当前浏览器，最多 5 轮</span>
+          </div>
+          <div class="history-table-wrap">
+            <table class="history-table">
+              <thead><tr><th>轮次</th><th>P(S)</th><th>系统 d′</th><th>你的 d′</th><th>c</th><th>准确率</th><th>得分</th></tr></thead>
+              <tbody id="historyBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="report-actions">
+          <button class="button button-secondary" data-action="restart-same">相同条件再测一轮</button>
+          <button class="button button-primary" data-action="change-params">更换参数重新值守</button>
+        </div>
+      </div>
+    </section>
+
+    <dialog id="methodDialog" class="method-dialog" aria-labelledby="methodDialogTitle">
+      <button class="icon-button dialog-close" data-action="close-method" aria-label="关闭">×</button>
+      <p class="eyebrow">METHOD NOTE / 实验原理</p>
+      <h2 id="methodDialogTitle">信号检测论把“分辨能力”和“判断倾向”分开</h2>
+      <p>现实中的信号与噪音通常不会泾渭分明。相同的感觉证据，有时来自火情，有时只是环境干扰。观察者需要选择一个判定标准：证据超过标准就发布预警，否则判为干扰。</p>
+      <div class="dialog-points">
+        <div><b>d′</b><span>两个证据分布的分离程度，反映敏感性。</span></div>
+        <div><b>c</b><span>判定标准相对中点的位置，反映谨慎或宽松。</span></div>
+        <div><b>P(S)</b><span>信号出现的先验概率，会影响判断策略。</span></div>
+      </div>
+      <button class="button button-primary" data-action="dialog-to-briefing">开始设置任务</button>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <span>工程心理学 · 信号检测论课程作业</span>
+    <span>纯前端实现 · 无外部资源依赖</span>
+  </footer>
+</body>
+</html>
