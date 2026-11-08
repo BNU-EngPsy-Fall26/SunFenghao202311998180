@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ec" />
+    <meta
+      name="description"
+      content="注意有迹：两个经典注意实验的复现、设计改进与研究记录。"
+    />
+    <title>注意有迹 · Attention Field Lab</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#home" aria-label="注意有迹首页"
+        ><span class="brand-mark" aria-hidden="true"
+          ><i></i><i></i><i></i><i></i></span
+        ><span>注意有迹<small>ATTENTION FIELD LAB</small></span></a
+      >
+      <nav aria-label="主导航">
+        <a href="#home" data-nav="home">实验台</a
+        ><a href="#report" data-nav="report">研究报告</a
+        ><a href="#about" data-nav="about">研究说明</a>
+      </nav>
+      <a class="manage-link" href="#manage"
+        >研究者入口 <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <footer id="site-footer">
+      <span>工程心理学 · 作业二</span
+      ><span>复现经典，检验设计。<i></i>纯前端 · 本地可运行</span>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="modal-root"></div>
+    <script src="src/config.js"></script>
+    <script src="src/core.js"></script>
+    <script src="src/storage.js"></script>
+    <script src="src/render.js"></script>
+    <script src="src/charts.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>

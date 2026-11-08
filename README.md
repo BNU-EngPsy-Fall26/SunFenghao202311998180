@@ -1,3 +1,7 @@
+[作业二：正式参加「注意有迹」实验（电脑）](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/hw2/?mode=formal)
+
+课程作业导航：[作业二说明与招募](hw2/README.md) · [作业一在线运行](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/)。作业一保留在根目录，作业二源码、研究设计、预登记预测及操作说明位于hw2/。
+
 # 火线值守 · Ember Watch
 
 一个纯前端、可直接运行的信号检测论（Signal Detection Theory, SDT）交互实验。玩家扮演卫星山火预警值守员，在云层、地表热源和传感器噪声中判断是否存在真实早期火情。

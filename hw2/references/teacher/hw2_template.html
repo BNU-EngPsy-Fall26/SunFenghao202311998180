@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作业二模板 · Stroop：原版 vs 改进版</title>
+<!--
+  作业二 · 单文件模板（工程心理学 · 注意实验室）
+  -------------------------------------------------
+  演示一个"复现 + 改进"实验网页的最小结构：
+    1) 指导语与被试昵称          → showIntro()
+    2) 两个实验，顺序随机平衡    → runExperiment('stroop') / runExperiment('stroop_separated')
+       · stroop            原版：字本身带颜色（颜色与字义属于同一个客体，Stroop, 1935）
+       · stroop_separated  改进示例：字是灰色的，颜色放在字上方的色块里（空间分离；
+                           预测：干扰效应变小，见 Gatti & Egeth, 1978；对照教材"客体注意"）
+    3) 每个实验做完，把试次数据提交到注意实验室的统一收数接口 → submitData()
+    4) 显示本人结果 + 读取全体被试数据（匿名）显示全体结果     → showResults()
+  使用方法：把下面 PROJECT 改成你在 /hw2 页面得到的 6 位项目码；双击本文件即可在浏览器运行。
+  请把它当作结构参考：你的作业要自己选 2–3 个实验、自己设计改进与界面。
+-->
+<style>
+  body { margin: 0; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #323c50; }
+  .box { max-width: 760px; margin: 40px auto; background: #fff; border-radius: 14px; padding: 28px 32px; box-shadow: 0 4px 20px rgba(13, 43, 92, .08); }
+  h1, h2 { color: #0D2B5C; }
+  button { padding: 10px 24px; border: none; border-radius: 8px; background: #C8A44A; color: #fff; font-size: 16px; cursor: pointer; }
+  input, select { padding: 8px 10px; font-size: 15px; border: 1px solid #ccd; border-radius: 6px; }
+  kbd { padding: 1px 7px; border: 1px solid #ccd; border-bottom-width: 2px; border-radius: 4px; background: #f7f8fa; }
+  #stage { position: fixed; inset: 0; background: #202532; display: none; align-items: center; justify-content: center; flex-direction: column; }
+  #word { font-size: 120px; font-weight: 800; min-height: 160px; }
+  #patch { width: 160px; height: 70px; border-radius: 10px; margin-bottom: 40px; visibility: hidden; }
+  #legend { position: absolute; bottom: 8%; display: flex; gap: 24px; color: #fff; font-size: 22px; }
+  #legend span { display: inline-block; width: 80px; height: 36px; border-radius: 8px; vertical-align: middle; margin-right: 6px; }
+  #msg { position: absolute; top: 10%; color: #ffd54a; font-size: 26px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+  th, td { border: 1px solid #e0e4eb; padding: 6px 10px; text-align: center; }
+  th { background: #f4f6fa; }
+  .muted { color: #788296; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="box" id="intro">
+  <h1>颜色判断小实验（约 1 分钟）</h1>
+  <p>屏幕中央会出现一个颜色。请<b>按颜色作答</b>，忽略字的意思：</p>
+  <p><kbd>D</kbd> 红　<kbd>F</kbd> 绿　<kbd>J</kbd> 蓝　<kbd>K</kbd> 黄</p>
+  <p>共两段，每段 10 次。又快又准。</p>
+  <p>你的昵称或编号（不要填真实姓名）：<input id="pid" placeholder="如 P_小王 或 07"></p>
+  <button id="go">开始</button>
+  <p class="muted" id="cfg"></p>
+</div>
+<div id="stage"><div id="msg"></div><div id="patch"></div><div id="word"></div><div id="legend"></div></div>
+<div class="box" id="result" style="display:none"></div>
+
+<script>
+// ====================== 1. 配置 ======================
+const PROJECT = new URLSearchParams(location.search).get('project') || 'ABC234'; // ← 改成你的 6 位项目码
+// 在注意实验室网站上打开时用当前网址；本地双击打开（file://）或 GitHub Pages 时用实验室的公网地址
+const LAB = /attention-lab|127\.0\.0\.1|localhost/.test(location.host) ? location.origin : 'https://attention-lab-production.up.railway.app';
+const COLORS = [
+  { id: 'red', word: '红', hex: '#ff4d4d', key: 'KeyD' },
+  { id: 'green', word: '绿', hex: '#33cc66', key: 'KeyF' },
+  { id: 'blue', word: '蓝', hex: '#4d8dff', key: 'KeyJ' },
+  { id: 'yellow', word: '黄', hex: '#ffd633', key: 'KeyK' },
+];
+const N_PER_COND = 5;        // 每个条件 5 次 × 一致/不一致 = 每段 10 次（作业要求：每个条件 ≥ 10 次，请自行加大）
+const TIMEOUT = 2500;        // 最长反应时间 ms
+document.getElementById('cfg').textContent = `项目码 ${PROJECT} · 数据提交到 ${LAB}`;
+
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+// ====================== 2. 生成试次（条件平衡 + 随机顺序） ======================
+function makeTrials() {
+  const list = [];
+  for (let k = 0; k < N_PER_COND; k++) {
+    const ink = COLORS[k % 4], other = COLORS[(k + 1 + Math.floor(Math.random() * 3)) % 4];
+    list.push({ cond: 'congruent', ink: ink.id, word: ink.word });
+    list.push({ cond: 'incongruent', ink: ink.id, word: other.word });
+  }
+  return shuffle(list);
+}
+
+// 等待按键：返回 { key, rt }；超时 key = null
+function waitKey(t0) {
+  return new Promise(res => {
+    const keys = COLORS.map(c => c.key);
+    const f = (e) => { if (!keys.includes(e.code) || e.repeat) return; done({ key: e.code, rt: performance.now() - t0 }); };
+    const done = (r) => { window.removeEventListener('keydown', f); clearTimeout(to); res(r); };
+    const to = setTimeout(() => done({ key: null, rt: null }), TIMEOUT);
+    window.addEventListener('keydown', f);
+  });
+}
+
+// ====================== 3. 运行一个实验 ======================
+async function runExperiment(experiment) {
+  const separated = experiment === 'stroop_separated';
+  const byId = Object.fromEntries(COLORS.map(c => [c.id, c]));
+  $('legend').innerHTML = COLORS.map(c => `<div><span style="background:${c.hex}"></span>${c.key.slice(3)}</div>`).join('');
+  $('msg').textContent = separated ? '这一段：按【色块】的颜色作答' : '这一段：按【字】的颜色作答';
+  await sleep(1800); $('msg').textContent = '';
+  const trials = [];
+  for (const t of makeTrials()) {
+    $('word').textContent = '+'; $('word').style.color = '#fff'; $('patch').style.visibility = 'hidden';
+    await sleep(400);
+    $('word').textContent = t.word;
+    if (separated) { $('word').style.color = '#9aa3b2'; $('patch').style.background = byId[t.ink].hex; $('patch').style.visibility = 'visible'; }
+    else $('word').style.color = byId[t.ink].hex;
+    await new Promise(requestAnimationFrame);          // 等浏览器把刺激画出来再开始计时
+    const t0 = performance.now();
+    const r = await waitKey(t0);
+    const correct = r.key === byId[t.ink].key ? 1 : 0;
+    trials.push({ cond: t.cond, ink: t.ink, word: t.word, rt: r.rt == null ? null : Math.round(r.rt), correct });
+    $('word').textContent = ''; $('patch').style.visibility = 'hidden';
+    if (!correct) { $('msg').textContent = r.key ? '✗' : '太慢了'; await sleep(400); $('msg').textContent = ''; }
+    await sleep(300);
+  }
+  return trials;
+}
+
+// ====================== 4. 提交到注意实验室（统一收数接口） ======================
+async function submitData(participant, experiment, trials) {
+  const res = await fetch(LAB + '/api/hw2/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ project: PROJECT, experiment, participant, trials,
+      meta: { ua: navigator.userAgent.slice(0, 80), w: innerWidth, h: innerHeight } }),
+  });
+  const r = await res.json();
+  if (!r.ok) throw new Error(r.msg);
+  return r;
+}
+async function loadAll(experiment) {
+  const r = await (await fetch(`${LAB}/api/hw2/data?project=${PROJECT}&experiment=${experiment}`)).json();
+  if (!r.ok) throw new Error(r.msg);
+  return r.records;
+}
+
+// ====================== 5. 计算与展示 ======================
+const mean = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : null);
+function interference(trials) {   // 干扰效应 = 不一致 − 一致（只用正确试次的 RT）
+  const rt = (c) => mean(trials.filter(t => t.cond === c && t.correct && t.rt != null).map(t => t.rt));
+  const a = rt('congruent'), b = rt('incongruent');
+  return { congruent: a, incongruent: b, effect: a != null && b != null ? b - a : null };
+}
+const ms = (v) => (v == null ? '—' : Math.round(v) + ' ms');
+
+async function showResults(mine, notes) {
+  let html = `<h2>你的结果</h2><table><tr><th>实验</th><th>一致</th><th>不一致</th><th>干扰效应</th></tr>`;
+  for (const [exp, trials] of Object.entries(mine)) { const s = interference(trials); html += `<tr><td>${exp}</td><td>${ms(s.congruent)}</td><td>${ms(s.incongruent)}</td><td><b>${ms(s.effect)}</b></td></tr>`; }
+  html += `</table><p class="muted">${notes.join('<br>')}</p><h2>全体被试（匿名）</h2>`;
+  try {
+    html += `<table><tr><th>实验</th><th>被试数</th><th>平均干扰效应</th></tr>`;
+    for (const exp of Object.keys(mine)) {
+      const recs = await loadAll(exp);
+      const last = {};                                    // 同一被试做了多次时只用最后一次
+      for (const r of recs) last[r.participant] = r;
+      const effects = Object.values(last).map(r => interference(r.trials).effect).filter(v => v != null);
+      html += `<tr><td>${exp}</td><td>${Object.keys(last).length}</td><td><b>${ms(mean(effects))}</b></td></tr>`;
+    }
+    html += `</table><p>预测：<b>stroop_separated</b>（颜色与字空间分离）的干扰效应应小于原版 <b>stroop</b>。数据支持吗？</p>`;
+  } catch (e) { html += `<p class="muted">暂时读不到全体数据：${e.message}</p>`; }
+  $('result').innerHTML = html; $('result').style.display = '';
+}
+
+// ====================== 6. 主流程 ======================
+$('go').onclick = async () => {
+  const participant = $('pid').value.trim();
+  if (!participant) return alert('请先填写昵称或编号');
+  $('intro').style.display = 'none'; $('stage').style.display = 'flex';
+  const order = shuffle(['stroop', 'stroop_separated']);   // 两个实验的先后顺序随机平衡
+  const mine = {}, notes = [];
+  for (const exp of order) {
+    mine[exp] = await runExperiment(exp);
+    try { const r = await submitData(participant, exp, mine[exp]); notes.push(`✓ ${exp} 已提交（该实验已有 ${r.participants} 名被试）`); }
+    catch (e) { notes.push(`✗ ${exp} 提交失败：${e.message}（数据仍在本页，可截图保存）`); }
+  }
+  $('stage').style.display = 'none';
+  showResults(mine, notes);
+};
+</script>
+</body>
+</html>

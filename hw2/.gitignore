@@ -1,0 +1,15 @@
+# 本地阅读用论文与页面预览；课程仓库保留文献链接和研究笔记
+research/papers/
+research/previews/
+# 密钥、原始导出与试运行数据不自动公开
+.env
+.env.*
+!.env.example
+private/
+data/raw/
+data/pilot/
+node_modules/
+output/
+.playwright-cli/
+.DS_Store
+Thumbs.db
