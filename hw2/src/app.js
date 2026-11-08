@@ -763,7 +763,9 @@
       )
         ? uploads.some((u) => u.needsReview)
           ? "已接收，字段需核对"
-          : "两个实验均已确认"
+          : active.session.selected.length === 2
+            ? "两个实验均已确认"
+            : "本实验已确认"
         : "请查看下方各实验上传状态";
     }
   }
@@ -940,6 +942,10 @@
     const sessions = S.all(),
       completed = sessions.filter((s) => s.done).length;
     main.innerHTML = `<section class="manage-page"><p class="eyebrow">RESEARCH DESK</p><h1>把过程，也记录好。</h1><p class="page-lead">项目配置、数据备份与上传状态。下载密钥始终留在老师平台，不在这里填写。</p><div class="manage-grid"><section class="desk-card"><h2>01　老师平台连接</h2><label class="field-label" for="project-code">6 位公开项目码</label><div class="inline-form"><input id="project-code" value="${esc(project())}" placeholder="例如 ABC234" maxlength="6" autocomplete="off"><button class="button primary" id="save-project">保存</button></div><p class="field-hint">这里只保存公开项目码。正式收数还需体验确认与预登记提交；仅填项目码不会自动开放正式入口。</p><div class="config-status"><span class="status-dot ${collectionReady() ? "" : "pending"}"></span>${collectionReady() ? "正式收数条件已满足" : "当前：体验与试运行阶段"}</div><a class="text-link" href="${CFG.endpoint}/hw2" target="_blank" rel="noopener">打开老师的项目管理页面 ↗</a><button class="button secondary" id="load-remote">读取平台匿名结果</button><p class="field-hint">读取不会提交新数据。只纳入本协议、正式模式的记录；未知协议会跳过。</p></section><section class="desk-card"><h2>02　记录与备份</h2><div class="mini-metrics"><div><strong>${sessions.length}</strong><span>本机会话</span></div><div><strong>${completed}</strong><span>完整会话</span></div></div><p>本地存储只属于当前浏览器。换设备前请导出，原始文件保留供后续核验。</p><div class="button-row"><button class="button secondary" id="export-all-json">导出全部 JSON</button><button class="button secondary" id="export-all-csv">导出全部 CSV</button></div><label class="file-import">导入本工具 JSON 备份 / 平台 JSON<input type="file" id="import-json" accept=".json,application/json"></label><p class="field-hint">导入不会自动上传。仅支持有协议与模式标记的数据，避免测试记录混入正式结果。</p>${S.warning() ? `<p class="warning-text">${esc(S.warning())}</p>` : ""}</section></div><section class="desk-card records-card"><h2>03　本机数据清单</h2><p class="field-hint">相同编号的重复完整会话，主分析只取最早一次。记录在本机保留，不自动删除或覆盖。</p>${sessions.length ? `<div class="table-scroll"><table class="data-table"><thead><tr><th>匿名编号 / 日期</th><th>模式</th><th>实验</th><th>判断数</th><th>状态 / 上传</th><th>操作</th></tr></thead><tbody>${sessions.flatMap((s) => Object.entries(s.tasks).map(([exp, task]) => `<tr><th>${esc(s.participant)}<small class="table-small">${esc(new Date(s.createdAt).toLocaleString("zh-CN"))}</small></th><td>${badge(s.mode)}</td><td>${C.NAMES[exp]}</td><td>${task.trials.length}</td><td>${task.complete ? "完整" : "未完成"}<small class="table-small">${esc(uploadLabel(task.upload?.status))}</small></td><td><button class="table-action" data-export="${esc(s.id)}">导出</button>${s.mode === "formal" && task.complete && task.upload?.status !== "uploaded" ? `<button class="table-action" data-retry="${esc(s.id)}" data-exp="${exp}">核对后重试上传</button>` : ""}</td></tr>`)).join("")}</tbody></table></div>` : '<div class="desk-empty">还没有本机记录。先去实验台体验一次。</div>'}</section><section class="desk-card"><h2>04　正式收数前清单</h2><ul class="checklist"><li class="done">两实验、改进条件与预测已确认</li><li>本地体验与完整试运行验收</li><li>预测、分析规则和代码 commit 并推送</li><li>创建一个老师项目，配置项目码并核验接口</li><li>记录预登记commit，开放正式收数</li></ul><p class="field-hint">${collectionReady() ? `已记录收数前commit：${esc(CFG.preregistrationCommit)}。正式收数已开放；完成后仍需核对真实数据与补齐报告。` : "正式收数须在体验确认、预登记提交和接口核验后开放。"}</p></section></section>`;
+    if (collectionReady())
+      document
+        .querySelectorAll(".checklist li")
+        .forEach((item) => item.classList.add("done"));
     const warningReceipts = sessions
       .flatMap((s) =>
         Object.entries(s.tasks)
