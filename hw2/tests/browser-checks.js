@@ -69,7 +69,7 @@ async function browserChecks(page) {
     },
   );
   await page.locator("#load-remote").click();
-  await page.waitForURL("**/#report");
+  await page.waitForURL("**/#live-report");
   if (readRequests !== 2) throw Error("平台应分别读取两范式");
   if (!(await page.locator("#report-source").count()))
     throw Error("缺少平台/本机来源区分");

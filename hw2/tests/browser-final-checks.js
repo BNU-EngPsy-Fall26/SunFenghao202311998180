@@ -7,7 +7,7 @@ async function browserFinalChecks(page) {
   await page.locator("#export-all-csv").click();
   const csv = await csvEvent;
   await csv.saveAs("output/playwright/QA-all.csv");
-  await page.goto("http://127.0.0.1:8772/#report");
+  await page.goto("http://127.0.0.1:8772/#live-report");
   await page.locator("#report-mode").selectOption("pilot");
   const htmlEvent = page.waitForEvent("download");
   await page.locator("#download-report").click();

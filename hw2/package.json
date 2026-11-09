@@ -1,11 +1,14 @@
 {
   "name": "attention-field-lab",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "private": true,
   "description": "注意有迹：视觉搜索与图形判断的浏览器适配复现和改进",
   "scripts": {
     "start": "node tools/serve.js",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "analyze": "node analysis/analyze.cjs",
+    "verify:data": "python analysis/verify.py",
+    "report:build": "node analysis/build-report.cjs"
   },
   "license": "UNLICENSED"
 }

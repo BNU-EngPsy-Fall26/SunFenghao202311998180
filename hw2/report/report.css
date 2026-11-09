@@ -1,0 +1,346 @@
+/* Scoped to the fixed research report, independent from participant task styles. */
+html {
+  scroll-behavior: smooth;
+}
+body:has(> main > .final-study) {
+  margin: 0;
+  background: #f5f7f5;
+}
+.final-study {
+  --study-ink: #263c34;
+  --study-muted: #596c62;
+  --study-rule: #cfd9d1;
+  max-width: 1080px;
+  margin: 32px auto 70px;
+  padding: 48px 64px;
+  background: #fff;
+  color: var(--study-ink);
+  font:
+    17px/1.95 "Microsoft YaHei",
+    "PingFang SC",
+    sans-serif;
+  overflow-wrap: break-word;
+}
+.final-study * {
+  box-sizing: border-box;
+}
+.final-study h1,
+.final-study h2,
+.final-study h3 {
+  font-family: "SimSun", "Songti SC", serif;
+  font-weight: 700;
+  color: var(--study-ink);
+}
+.final-study h1 {
+  font-size: clamp(30px, 3.8vw, 43px);
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  margin: 22px 0 12px;
+}
+.final-study h2 {
+  font-size: 27px;
+  line-height: 1.55;
+  margin: 0 0 20px;
+}
+.final-study h3 {
+  font-size: 21px;
+  margin: 30px 0 12px;
+}
+.final-study p {
+  margin: 0 0 18px;
+}
+.final-study a {
+  color: #2c645b;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.final-study a:hover {
+  color: #06473c;
+}
+.final-study a:focus-visible,
+.final-study button:focus-visible,
+.final-study summary:focus-visible {
+  outline: 3px solid #ae7729;
+  outline-offset: 5px;
+}
+.final-study section {
+  border-top: 1px solid var(--study-rule);
+  padding-top: 36px;
+  margin-top: 36px;
+  scroll-margin-top: 100px;
+}
+.final-study .study-kicker {
+  font:
+    12px/1.7 "Microsoft YaHei",
+    sans-serif;
+  letter-spacing: 0.07em;
+  color: var(--study-muted);
+}
+.final-study .study-subtitle {
+  color: var(--study-muted);
+  font-size: 18px;
+}
+.final-study .study-deck {
+  font-size: 18px;
+  max-width: 48em;
+  line-height: 1.9;
+}
+.final-study .study-sample {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border-block: 1px solid var(--study-rule);
+  padding: 20px 0 22px;
+  margin: 30px 0 24px;
+}
+.final-study .study-sample strong {
+  font:
+    42px/1.1 "Cambria",
+    "Times New Roman",
+    serif;
+  display: block;
+  color: #35594b;
+}
+.final-study .study-sample span {
+  display: block;
+  margin-top: 9px;
+  font-size: 13px;
+  color: var(--study-muted);
+}
+.final-study .study-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  font-size: 14px;
+  margin: 25px 0;
+}
+.final-study .study-print {
+  color: #fff;
+  background: #355f51;
+  border: 1px solid #355f51;
+  padding: 10px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+.final-study .study-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  border-block: 1px solid var(--study-rule);
+  padding: 17px 0;
+  margin: 28px 0;
+  font-size: 13px;
+}
+.final-study .study-warning {
+  background: #fcf6e9;
+  border-left: 3px solid #a57435;
+  padding: 22px 25px;
+  margin: 28px 0 40px;
+}
+.final-study .study-warning h2 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+.final-study .study-warning p {
+  font-size: 15px;
+  margin: 0;
+}
+.final-study figure {
+  margin: 30px 0;
+  padding: 8px 0 0;
+}
+.final-study figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.final-study figcaption {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #53675d;
+  line-height: 1.8;
+}
+.final-study .figure-downloads {
+  white-space: nowrap;
+  font-size: 12px;
+}
+.final-study .study-table-wrap {
+  overflow-x: auto;
+  margin: 25px 0 12px;
+}
+.final-study table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.7;
+  font-variant-numeric: tabular-nums;
+  border-top: 2px solid #4e6258;
+  border-bottom: 2px solid #4e6258;
+}
+.final-study caption {
+  text-align: left;
+  color: var(--study-ink);
+  font-size: 15px;
+  font-weight: 700;
+  padding-bottom: 12px;
+}
+.final-study thead {
+  border-bottom: 1px solid #819187;
+}
+.final-study td,
+.final-study th {
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+.final-study th {
+  font-weight: 600;
+}
+.final-study tbody tr + tr {
+  border-top: 1px solid #e7ece8;
+}
+.final-study .study-note {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--study-muted);
+}
+.final-study details {
+  margin: 20px 0;
+}
+.final-study summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.final-study .study-references {
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.final-study .study-references li {
+  padding-left: 4px;
+  margin-bottom: 15px;
+  overflow-wrap: anywhere;
+}
+.final-study .study-footer {
+  border-top: 1px solid var(--study-rule);
+  margin-top: 42px;
+  padding-top: 18px;
+  font-size: 12px;
+  color: var(--study-muted);
+}
+.study-skip {
+  position: fixed;
+  top: -100px;
+  left: 15px;
+  z-index: 100;
+  padding: 12px;
+  background: white;
+  color: #263c34;
+}
+.study-skip:focus {
+  top: 10px;
+}
+@media (max-width: 700px) {
+  .final-study {
+    padding: 28px 20px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+  .final-study h2 {
+    font-size: 24px;
+  }
+  .final-study .study-sample {
+    gap: 12px;
+  }
+  .final-study .study-sample span {
+    font-size: 12px;
+  }
+  .final-study .study-sample strong {
+    font-size: 36px;
+  }
+  .final-study table {
+    min-width: 590px;
+  }
+  .final-study .study-warning {
+    padding: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 17mm;
+  }
+  body {
+    background: #fff !important;
+  }
+  .final-study {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    color: #111;
+    font:
+      10.5pt/1.7 "SimSun",
+      "Times New Roman",
+      serif;
+  }
+  .final-study h1 {
+    font-size: 24pt;
+  }
+  .final-study h2 {
+    font-size: 16pt;
+    break-after: avoid;
+  }
+  .final-study h3 {
+    font-size: 12pt;
+    break-after: avoid;
+  }
+  .final-study section {
+    margin-top: 22px;
+    padding-top: 22px;
+  }
+  .final-study .study-toc,
+  .final-study .study-actions,
+  .final-study .figure-downloads,
+  .study-skip,
+  #site-header,
+  #site-footer {
+    display: none !important;
+  }
+  .final-study figure,
+  .final-study .study-warning,
+  .final-study tr {
+    break-inside: avoid;
+  }
+  .final-study figure {
+    margin: 18px 0;
+  }
+  .final-study .study-table-wrap {
+    overflow: visible;
+  }
+  .final-study table {
+    min-width: 0;
+    font-size: 8pt;
+  }
+  .final-study td,
+  .final-study th {
+    padding: 6px;
+  }
+  .final-study figcaption,
+  .final-study .study-note {
+    font-size: 8pt;
+  }
+  .final-study a {
+    color: #111;
+  }
+  .final-study .study-sample strong {
+    font-size: 30pt;
+  }
+}

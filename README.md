@@ -1,6 +1,6 @@
-[作业二：正式参加「注意有迹」实验（电脑）](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/hw2/?mode=formal)
+[作业二：在线实验](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/hw2/) · [完整研究报告](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/hw2/report/) · [报告PDF](hw2/report/research-report.pdf)
 
-课程作业导航：[作业二说明与招募](hw2/README.md) · [作业一在线运行](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/)。作业一保留在根目录，作业二源码、研究设计、预登记预测及操作说明位于hw2/。
+课程作业导航：[作业二说明与结果](hw2/README.md) · [作业一在线运行](https://bnu-engpsy-fall26.github.io/SunFenghao202311998180/)。作业一保留在根目录，作业二源码、预登记预测、匿名汇总、分析与完整报告位于hw2/。作业二共5人完成，搜索主分析有效2人、图形有效5人，详见报告的质量说明。
 
 # 火线值守 · Ember Watch
 

@@ -719,7 +719,7 @@
       reportMode = s.mode;
       active = null;
       document.body.classList.remove("running");
-      navigate("report");
+      navigate("live-report");
     });
     bind("#export-finished", "click", () => exportSession(s));
     bind("#export-csv", "click", () =>
@@ -880,7 +880,7 @@
       <section class="report-section"><div class="report-section-head"><span>01</span><div><p class="eyebrow">VISUAL SEARCH</p><h2>集合变大，搜索需要多长时间？</h2><p>先比较特征与联合搜索，再检查颜色空间分区是否降低搜索斜率。</p></div></div><div class="report-two-col"><figure>${G.lines(summary.search)}${G.legend(C.SEARCH_MODES)}<figcaption>图1. 目标存在时的正确反应RT。先计算个人条件均值，再汇总；不同大小的有效N可能不同，完整口径见数据表。</figcaption></figure><figure>${G.paired(summary.search, "search")}<figcaption>图2. 每名参与者的搜索斜率。小点与细线为个人；大点为均值，区间为被试级bootstrap 95%CI。有效N不足2不绘区间。</figcaption></figure></div>${effectParagraph(summary.effects[0], effectNames["S-R"])}${effectParagraph(summary.effects[1], effectNames["S-I"])}${groupTable(summary.search, "visual_search")}<p class="report-note">原文表1中，目标存在时联合/特征斜率为28.7/3.1 ms/item，仅作原研究参照。浏览器设备、刺激配色、练习量和试次数不同，当前比较不能仅凭斜率证明唯一加工机制。</p></section>
       <section class="report-section"><div class="report-section-head"><span>02</span><div><p class="eyebrow">GRAPHICAL JUDGMENT</p><h2>共同基线，能帮助目测吗？</h2><p>保持“A占最大项X多少”的问题，比较柱图、饼图及辅助饼图。</p></div></div><figure class="wide-figure">${G.paired(summary.graph, "graph")}<figcaption>图3. 个人平均log₂绝对误差，越低越准确；0.125为原文的误差偏移量。图形规则与图2相同。此指标可为负，不是计算错误。</figcaption></figure>${effectParagraph(summary.effects[2], effectNames["G-R"])}${effectParagraph(summary.effects[3], effectNames["G-I"])}${groupTable(summary.graph, "graphical_judgment")}<p class="report-note">辅助尺提供同一数据的冗余长度表达。若误差下降同时回答变慢，应共同报告精度与时间；不能据此声称角度知觉本身被改善。</p></section>
       <section class="report-section"><p class="eyebrow">FOUR PLANNED COMPARISONS</p><h2>预测与证据，对照着看。</h2><div class="table-scroll"><table class="data-table"><thead><tr><th>预定比较</th><th>有效配对N</th><th>平均差</th><th>95%CI</th><th>校正p</th></tr></thead><tbody>${summary.effects.map((e) => `<tr><th>${e.key} ${effectNames[e.key]}</th><td>${e.n}</td><td>${number(e.mean, 2)}</td><td>${e.ci ? e.ci.map((v) => f(v, 2)).join(" ～ ") : "—"}</td><td>${Number.isFinite(e.adjusted) ? (e.adjusted < 0.001 ? "< .001" : f(e.adjusted, 3)) : "—"}</td></tr>`).join("")}</tbody></table></div><p class="report-note">全部差值定义为“原条件减参照/改进条件”，正值符合方向性预测。S项单位为ms/item，G项为log误差。正式有效N≥5时计算双侧配对符号翻转检验，并对可估计的四项比较作Holm校正；该检验依赖差值的对称/可交换性假设。区间以被试为单位重采样2500次，不把试次当作独立被试。</p></section>
-      <section class="report-section report-method"><h2>读这些结果时，请保留边界。</h2><div><p>搜索仅用150–5000ms的有效正确反应。每个目标存在条件格须至少8次有效正确RT；整体准确率低于60%时不估计主效应。判断实验每条件须至少16次有效回答。体验模式使用较低门槛，仅作演示。</p><p>相同匿名编号、相同协议、同一范式仅保留首次完整会话。正式模式与体验/试运行隔离；不同范式和对比可能有不同有效样本量。图中RT均值不等于四个对比都具备有效数据。</p><p>“未达到显著”不表示没有效应，也不表示两条件等效。10人是招募目标，不是功效保证。最终文字讨论仍需结合实际参与者情况、顺序与数据质量，由研究者完成。</p></div><p class="report-note">完整出处、适配差异与预测见“研究说明”及仓库docs。报告是当前数据快照；正式成文时固定数据截止时间，保留原始导出与分析版本。</p></section>`;
+      <section class="report-section report-method"><h2>读这些结果时，请保留边界。</h2><div><p>搜索仅用150–5000ms的有效正确反应。每个目标存在条件格须至少8次有效正确RT；整体准确率低于60%时不估计主效应。判断实验每条件须至少16次有效回答。体验模式使用较低门槛，仅作演示。</p><p>相同匿名编号、相同协议、同一范式仅保留首次完整会话。正式模式与体验/试运行隔离；不同范式和对比可能有不同有效样本量。图中RT均值不等于四个对比都具备有效数据。</p><p>“未达到显著”不表示没有效应，也不表示两条件等效。${CFG.recruitmentTarget}人是初始招募目标，不是功效保证。这里是当前来源的数据工具，不能代替固定研究报告中的样本、时间与质量说明。</p></div><p class="report-note">完整出处、适配差异与预测见“研究说明”及仓库docs。<a href="#report">阅读已核验的固定研究报告 →</a>；本工具随来源更新，不改写固定报告。</p></section>`;
     lastReport = body;
     main.innerHTML = `<article class="research-report">${body}</article>`;
     if (formal && (reportSource === "teacher" || remoteSessions.length)) {
@@ -1070,7 +1070,7 @@
       reportSource = "teacher";
       reportMode = "formal";
       toast(`已读取${remoteSessions.length}条兼容的正式实验记录。`);
-      navigate("report");
+      navigate("live-report");
     } catch (e) {
       toast("读取失败：" + (e.name === "AbortError" ? "请求超时" : e.message));
       button.disabled = false;
@@ -1125,7 +1125,7 @@
         reportSource = "teacher";
         reportMode = "formal";
         toast(`已读取${converted.length}条正式实验记录，仅用于当前报告。`);
-        navigate("report");
+        navigate("live-report");
       }
     } catch (e) {
       toast("导入失败：" + e.message);
@@ -1153,8 +1153,12 @@
     }
     document.body.classList.remove("running");
     setNav(hash);
-    if (hash === "report") report();
-    else if (hash === "about") about();
+    if (hash === "report" && window.LAB_FINAL_REPORT?.verified) {
+      main.innerHTML = window.LAB_FINAL_REPORT.body;
+    } else if (hash === "report" || hash === "live-report") {
+      setNav("report");
+      report();
+    } else if (hash === "about") about();
     else if (hash === "manage") manage();
     else home();
     if (hash !== "start-panel") scrollTo({ top: 0, behavior: "instant" });

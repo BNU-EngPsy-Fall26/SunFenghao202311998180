@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "csv_rows": 1500,
+  "json_records": 10,
+  "trial_fields_compared": 30000,
+  "csv_json_mismatches": 0,
+  "bad_search_cells": [
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "set_size": 30,
+      "valid_correct": 7
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "set_size": 30,
+      "valid_correct": 7
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "set_size": 30,
+      "valid_correct": 6
+    }
+  ],
+  "independent_statistics": "means, slopes, SD, 2500-draw CI, exact sign flip, four-test Holm",
+  "note": "Integrity checks establish file agreement, not independent verification of participant identity."
+}

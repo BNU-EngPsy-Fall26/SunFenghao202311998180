@@ -1,0 +1,2665 @@
+{
+  "manifest": {
+    "project": "W2UGHD",
+    "snapshot": "2026-11-09T19:40:56+08:00",
+    "protocol": "attention-v1.1",
+    "preregistration": "89c427c9b7fbb3895d49f36e48bd8c7e2daca2d5",
+    "files": [
+      {
+        "name": "hw2_W2UGHD_2026-11-09_194056.json",
+        "bytes": 931488,
+        "sha256": "53e52dfdb7c93efb7e8ee0b2fd8928e289218c04852650e35a8b0346cc864880"
+      },
+      {
+        "name": "hw2_W2UGHD_2026-11-09_194054.csv",
+        "bytes": 410624,
+        "sha256": "58d61fcd9cf8b51b56c5540428e0c9288c1d7cf1e60a198bd71b7ec6d0e6dd8d"
+      }
+    ],
+    "records": 10,
+    "retained_records": 10,
+    "participants": 5,
+    "trial_count": 1500,
+    "search_trials": 1200,
+    "graph_trials": 300,
+    "participant_ids": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05"
+    ],
+    "bootstrap": {
+      "samples": 2500,
+      "seed": "effect key S-R/S-I/G-R/G-I",
+      "algorithm": "src/core.js rng/interval; percentile linear interpolation"
+    },
+    "interpretation": "All five participants in the final export form one study sample. Sample scope was revised from the collection plan; trial-quality criteria and primary contrasts remain unchanged."
+  },
+  "all": {
+    "search": [
+      {
+        "participant": "P01",
+        "variants": {
+          "feature_original": {
+            "n": 80,
+            "accuracy": 0.975,
+            "rt": 1270.9076923076927,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 870.76
+              },
+              {
+                "size": 5,
+                "n": 9,
+                "rt": 1027.6111111111109
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 1110.0800000000002
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 1369.3000000000002
+              }
+            ],
+            "slope": 15.821645309813071
+          },
+          "conjunction_original": {
+            "n": 80,
+            "accuracy": 0.95,
+            "rt": 1581.827631578948,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 757.2
+              },
+              {
+                "size": 5,
+                "n": 9,
+                "rt": 843.7999999999998
+              },
+              {
+                "size": 15,
+                "n": 9,
+                "rt": 1181.8111111111111
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 2456.99
+              }
+            ],
+            "slope": 59.12252121817273
+          },
+          "conjunction_grouped": {
+            "n": 80,
+            "accuracy": 0.975,
+            "rt": 1248.2782051282052,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 609.4999999999999
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 894.11
+              },
+              {
+                "size": 15,
+                "n": 9,
+                "rt": 1204.8444444444442
+              },
+              {
+                "size": 30,
+                "n": 9,
+                "rt": 1465.9444444444443
+              }
+            ],
+            "slope": 27.773268430687303
+          }
+        },
+        "accuracy": 0.9666666666666667,
+        "effects": {
+          "S-R": 43.30087590835966,
+          "S-I": 31.349252787485426
+        }
+      },
+      {
+        "participant": "P02",
+        "variants": {
+          "feature_original": {
+            "n": 80,
+            "accuracy": 0.975,
+            "rt": 803.9641025641024,
+            "curve": [
+              {
+                "size": 1,
+                "n": 9,
+                "rt": 630
+              },
+              {
+                "size": 5,
+                "n": 9,
+                "rt": 729.9333333333333
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 773.48
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 766.2700000000002
+              }
+            ],
+            "slope": 3.792319853553012
+          },
+          "conjunction_original": {
+            "n": 80,
+            "accuracy": 0.9375,
+            "rt": 849.9493333333332,
+            "curve": [
+              {
+                "size": 1,
+                "n": 8,
+                "rt": 484.2375
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 563.3399999999999
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 695.3
+              },
+              {
+                "size": 30,
+                "n": 8,
+                "rt": 1118.5
+              }
+            ],
+            "slope": 21.5733886669995
+          },
+          "conjunction_grouped": {
+            "n": 80,
+            "accuracy": 0.9875,
+            "rt": 675.6037974683546,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 475.39
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 607.73
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 649.7
+              },
+              {
+                "size": 30,
+                "n": 9,
+                "rt": 757.4888888888888
+              }
+            ],
+            "slope": 8.452857380595772
+          }
+        },
+        "accuracy": 0.9666666666666667,
+        "effects": {
+          "S-R": 17.78106881344649,
+          "S-I": 13.120531286403727
+        }
+      },
+      {
+        "participant": "P03",
+        "variants": {
+          "feature_original": {
+            "n": 80,
+            "accuracy": 0.95,
+            "rt": 926.6105263157893,
+            "curve": [
+              {
+                "size": 1,
+                "n": 9,
+                "rt": 617.9222222222222
+              },
+              {
+                "size": 5,
+                "n": 9,
+                "rt": 778.7666666666667
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 784.55
+              },
+              {
+                "size": 30,
+                "n": 9,
+                "rt": 719.1777777777778
+              }
+            ],
+            "slope": 1.7474316303322803
+          },
+          "conjunction_original": {
+            "n": 80,
+            "accuracy": 0.9375,
+            "rt": 869.3386666666668,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 567.32
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 579.8999999999999
+              },
+              {
+                "size": 15,
+                "n": 9,
+                "rt": 890.7777777777778
+              },
+              {
+                "size": 30,
+                "n": 7,
+                "rt": 1052.2
+              }
+            ],
+            "slope": null
+          },
+          "conjunction_grouped": {
+            "n": 80,
+            "accuracy": 0.975,
+            "rt": 910.5974358974357,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 545.4100000000001
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 913.22
+              },
+              {
+                "size": 15,
+                "n": 8,
+                "rt": 954.8374999999999
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 991.3399999999999
+              }
+            ],
+            "slope": 11.508690713929102
+          }
+        },
+        "accuracy": 0.9541666666666667,
+        "effects": {
+          "S-R": null,
+          "S-I": null
+        }
+      },
+      {
+        "participant": "P04",
+        "variants": {
+          "feature_original": {
+            "n": 80,
+            "accuracy": 0.975,
+            "rt": 1216.1705128205128,
+            "curve": [
+              {
+                "size": 1,
+                "n": 9,
+                "rt": 723.6111111111111
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 886.5600000000001
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 915.85
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 935.4300000000001
+              }
+            ],
+            "slope": 5.638660897542576
+          },
+          "conjunction_original": {
+            "n": 80,
+            "accuracy": 0.9125,
+            "rt": 1230.8917808219178,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 681.76
+              },
+              {
+                "size": 5,
+                "n": 8,
+                "rt": 823.25
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 1037.94
+              },
+              {
+                "size": 30,
+                "n": 7,
+                "rt": 1700.357142857143
+              }
+            ],
+            "slope": null
+          },
+          "conjunction_grouped": {
+            "n": 80,
+            "accuracy": 0.9875,
+            "rt": 906.5215189873418,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 638.31
+              },
+              {
+                "size": 5,
+                "n": 10,
+                "rt": 737.2
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 858.4000000000002
+              },
+              {
+                "size": 30,
+                "n": 9,
+                "rt": 1004.5111111111112
+              }
+            ],
+            "slope": 12.073438176069233
+          }
+        },
+        "accuracy": 0.9583333333333334,
+        "effects": {
+          "S-R": null,
+          "S-I": null
+        }
+      },
+      {
+        "participant": "P05",
+        "variants": {
+          "feature_original": {
+            "n": 80,
+            "accuracy": 0.9625,
+            "rt": 758.9428571428572,
+            "curve": [
+              {
+                "size": 1,
+                "n": 9,
+                "rt": 556.4333333333334
+              },
+              {
+                "size": 5,
+                "n": 8,
+                "rt": 676.5625
+              },
+              {
+                "size": 15,
+                "n": 10,
+                "rt": 620.3100000000001
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 692.45
+              }
+            ],
+            "slope": 3.113347894824431
+          },
+          "conjunction_original": {
+            "n": 80,
+            "accuracy": 0.9125,
+            "rt": 761.7506849315067,
+            "curve": [
+              {
+                "size": 1,
+                "n": 10,
+                "rt": 671.9
+              },
+              {
+                "size": 5,
+                "n": 9,
+                "rt": 689.5333333333333
+              },
+              {
+                "size": 15,
+                "n": 9,
+                "rt": 743.8222222222223
+              },
+              {
+                "size": 30,
+                "n": 6,
+                "rt": 990.5
+              }
+            ],
+            "slope": null
+          },
+          "conjunction_grouped": {
+            "n": 80,
+            "accuracy": 0.9375,
+            "rt": 814.1813333333333,
+            "curve": [
+              {
+                "size": 1,
+                "n": 9,
+                "rt": 605.7333333333332
+              },
+              {
+                "size": 5,
+                "n": 9,
+                "rt": 701.9111111111112
+              },
+              {
+                "size": 15,
+                "n": 9,
+                "rt": 738.4888888888888
+              },
+              {
+                "size": 30,
+                "n": 10,
+                "rt": 721.5899999999999
+              }
+            ],
+            "slope": 3.0990508681422293
+          }
+        },
+        "accuracy": 0.9375,
+        "effects": {
+          "S-R": null,
+          "S-I": null
+        }
+      }
+    ],
+    "graph": [
+      {
+        "participant": "P01",
+        "variants": {
+          "bar_original": {
+            "n": 20,
+            "total": 20,
+            "log": 1.520098115770372,
+            "mae": 3.6909538429959112,
+            "bias": -1.8743001641747559,
+            "rt": 3898.1150000000002
+          },
+          "pie_original": {
+            "n": 20,
+            "total": 20,
+            "log": 2.1953895547453226,
+            "mae": 7.564519864902492,
+            "bias": -4.574300164174754,
+            "rt": 4227.125000000002
+          },
+          "pie_aligned_aid": {
+            "n": 20,
+            "total": 20,
+            "log": 1.7432923870694634,
+            "mae": 4.922773129628761,
+            "bias": -4.524300164174758,
+            "rt": 4178.494999999999
+          }
+        },
+        "effects": {
+          "G-R": 0.6752914389749507,
+          "G-I": 0.45209716767585917
+        }
+      },
+      {
+        "participant": "P02",
+        "variants": {
+          "bar_original": {
+            "n": 20,
+            "total": 20,
+            "log": 2.245683182844043,
+            "mae": 5.714448910228679,
+            "bias": 0.9756998358252453,
+            "rt": 3144.175
+          },
+          "pie_original": {
+            "n": 20,
+            "total": 20,
+            "log": 3.1351868305068953,
+            "mae": 14.480643865374125,
+            "bias": -10.524300164174758,
+            "rt": 5442.0599999999995
+          },
+          "pie_aligned_aid": {
+            "n": 20,
+            "total": 20,
+            "log": 1.8674949806960772,
+            "mae": 4.796561800075042,
+            "bias": -3.024300164174756,
+            "rt": 3241.904999999999
+          }
+        },
+        "effects": {
+          "G-R": 0.8895036476628522,
+          "G-I": 1.267691849810818
+        }
+      },
+      {
+        "participant": "P03",
+        "variants": {
+          "bar_original": {
+            "n": 20,
+            "total": 20,
+            "log": 1.1570433126421986,
+            "mae": 4.07697947669295,
+            "bias": -2.124300164174758,
+            "rt": 3311.285
+          },
+          "pie_original": {
+            "n": 20,
+            "total": 20,
+            "log": 2.444073684280477,
+            "mae": 6.187278397964976,
+            "bias": -0.02430016417475578,
+            "rt": 4962.914999999999
+          },
+          "pie_aligned_aid": {
+            "n": 20,
+            "total": 20,
+            "log": 0.7694592346296079,
+            "mae": 2.2577237764884215,
+            "bias": -1.1243001641747548,
+            "rt": 3393.7799999999997
+          }
+        },
+        "effects": {
+          "G-R": 1.2870303716382785,
+          "G-I": 1.6746144496508693
+        }
+      },
+      {
+        "participant": "P04",
+        "variants": {
+          "bar_original": {
+            "n": 20,
+            "total": 20,
+            "log": 0.9900542208439104,
+            "mae": 3.044997690116175,
+            "bias": 0.1756998358252444,
+            "rt": 5047.525000000001
+          },
+          "pie_original": {
+            "n": 20,
+            "total": 20,
+            "log": 2.4213147275332223,
+            "mae": 7.856238542356555,
+            "bias": 1.425699835825245,
+            "rt": 6146.74
+          },
+          "pie_aligned_aid": {
+            "n": 19,
+            "total": 20,
+            "log": 0.9141448031461076,
+            "mae": 2.7886076425418937,
+            "bias": -1.203499356058714,
+            "rt": 7977.363157894736
+          }
+        },
+        "effects": {
+          "G-R": 1.4312605066893118,
+          "G-I": 1.5071699243871146
+        }
+      },
+      {
+        "participant": "P05",
+        "variants": {
+          "bar_original": {
+            "n": 20,
+            "total": 20,
+            "log": 1.0273629658585148,
+            "mae": 2.7328814991762362,
+            "bias": -1.1243001641747548,
+            "rt": 2609.2599999999993
+          },
+          "pie_original": {
+            "n": 20,
+            "total": 20,
+            "log": 1.9478014308415852,
+            "mae": 5.291561583475133,
+            "bias": -2.7243001641747577,
+            "rt": 3408.905
+          },
+          "pie_aligned_aid": {
+            "n": 20,
+            "total": 20,
+            "log": 0.7290946758777154,
+            "mae": 2.3564880744377206,
+            "bias": -0.8743001641747556,
+            "rt": 2479.3150000000005
+          }
+        },
+        "effects": {
+          "G-R": 0.9204384649830704,
+          "G-I": 1.2187067549638697
+        }
+      }
+    ],
+    "effects": [
+      {
+        "key": "S-R",
+        "n": 2,
+        "values": [
+          43.30087590835966,
+          17.78106881344649
+        ],
+        "participants": [
+          "P01",
+          "P02"
+        ],
+        "mean": 30.540972360903073,
+        "sd": 18.04522865138567,
+        "ci": [
+          17.78106881344649,
+          43.30087590835966
+        ],
+        "p": null,
+        "adjusted": null
+      },
+      {
+        "key": "S-I",
+        "n": 2,
+        "values": [
+          31.349252787485426,
+          13.120531286403727
+        ],
+        "participants": [
+          "P01",
+          "P02"
+        ],
+        "mean": 22.234892036944576,
+        "sd": 12.889652585775892,
+        "ci": [
+          13.120531286403727,
+          31.349252787485426
+        ],
+        "p": null,
+        "adjusted": null
+      },
+      {
+        "key": "G-R",
+        "n": 5,
+        "values": [
+          0.6752914389749507,
+          0.8895036476628522,
+          1.2870303716382785,
+          1.4312605066893118,
+          0.9204384649830704
+        ],
+        "participants": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05"
+        ],
+        "mean": 1.0407048859896926,
+        "sd": 0.30986398285884414,
+        "ci": [
+          0.8100057276517353,
+          1.2800666931464397
+        ],
+        "p": 0.0625,
+        "adjusted": 0.25
+      },
+      {
+        "key": "G-I",
+        "n": 5,
+        "values": [
+          0.45209716767585917,
+          1.267691849810818,
+          1.6746144496508693,
+          1.5071699243871146,
+          1.2187067549638697
+        ],
+        "participants": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05"
+        ],
+        "mean": 1.224056029297706,
+        "sd": 0.4693105452011715,
+        "ci": [
+          0.8164336364757123,
+          1.5262521195773573
+        ],
+        "p": 0.0625,
+        "adjusted": 0.25
+      }
+    ],
+    "mode": "formal",
+    "searchN": 5,
+    "graphN": 5
+  },
+  "quality": [
+    {
+      "participant": "P01",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 78,
+      "accuracy": 0.975,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P01",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 1,
+      "early_rt": 0,
+      "valid": 76,
+      "accuracy": 0.95,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P01",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 2,
+      "early_rt": 0,
+      "valid": 78,
+      "accuracy": 0.975,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P01",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P01",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P01",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P02",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P02",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P02",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P02",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 78,
+      "accuracy": 0.975,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P02",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 1,
+      "early_rt": 0,
+      "valid": 75,
+      "accuracy": 0.9375,
+      "minimum_present_cell": 8,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P02",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 79,
+      "accuracy": 0.9875,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P03",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 76,
+      "accuracy": 0.95,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P03",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 75,
+      "accuracy": 0.9375,
+      "minimum_present_cell": 7,
+      "main_metric_available": false
+    },
+    {
+      "participant": "P03",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 78,
+      "accuracy": 0.975,
+      "minimum_present_cell": 8,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P03",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P03",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P03",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P04",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P04",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P04",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "trials": 20,
+      "interrupted": 1,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 19,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P04",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 78,
+      "accuracy": 0.975,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P04",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 73,
+      "accuracy": 0.9125,
+      "minimum_present_cell": 7,
+      "main_metric_available": false
+    },
+    {
+      "participant": "P04",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 79,
+      "accuracy": 0.9875,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P05",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 77,
+      "accuracy": 0.9625,
+      "minimum_present_cell": 8,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P05",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 73,
+      "accuracy": 0.9125,
+      "minimum_present_cell": 6,
+      "main_metric_available": false
+    },
+    {
+      "participant": "P05",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "trials": 80,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 75,
+      "accuracy": 0.9375,
+      "minimum_present_cell": 9,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P05",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P05",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    },
+    {
+      "participant": "P05",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "trials": 20,
+      "interrupted": 0,
+      "timeout": 0,
+      "early_rt": 0,
+      "valid": 20,
+      "accuracy": null,
+      "minimum_present_cell": null,
+      "main_metric_available": true
+    }
+  ],
+  "conditionRows": [
+    {
+      "participant": "P01",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "metric": 15.821645309813071,
+      "accuracy": 0.975,
+      "rt": 1270.9076923076927,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P01",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "metric": 59.12252121817273,
+      "accuracy": 0.95,
+      "rt": 1581.827631578948,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P01",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "metric": 27.773268430687303,
+      "accuracy": 0.975,
+      "rt": 1248.2782051282052,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P01",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "metric": 1.520098115770372,
+      "accuracy": null,
+      "rt": 3898.1150000000002,
+      "mae": 3.6909538429959112,
+      "bias": -1.8743001641747559
+    },
+    {
+      "participant": "P01",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "metric": 2.1953895547453226,
+      "accuracy": null,
+      "rt": 4227.125000000002,
+      "mae": 7.564519864902492,
+      "bias": -4.574300164174754
+    },
+    {
+      "participant": "P01",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "metric": 1.7432923870694634,
+      "accuracy": null,
+      "rt": 4178.494999999999,
+      "mae": 4.922773129628761,
+      "bias": -4.524300164174758
+    },
+    {
+      "participant": "P02",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "metric": 2.245683182844043,
+      "accuracy": null,
+      "rt": 3144.175,
+      "mae": 5.714448910228679,
+      "bias": 0.9756998358252453
+    },
+    {
+      "participant": "P02",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "metric": 3.1351868305068953,
+      "accuracy": null,
+      "rt": 5442.0599999999995,
+      "mae": 14.480643865374125,
+      "bias": -10.524300164174758
+    },
+    {
+      "participant": "P02",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "metric": 1.8674949806960772,
+      "accuracy": null,
+      "rt": 3241.904999999999,
+      "mae": 4.796561800075042,
+      "bias": -3.024300164174756
+    },
+    {
+      "participant": "P02",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "metric": 3.792319853553012,
+      "accuracy": 0.975,
+      "rt": 803.9641025641024,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P02",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "metric": 21.5733886669995,
+      "accuracy": 0.9375,
+      "rt": 849.9493333333332,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P02",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "metric": 8.452857380595772,
+      "accuracy": 0.9875,
+      "rt": 675.6037974683546,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P03",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "metric": 1.7474316303322803,
+      "accuracy": 0.95,
+      "rt": 926.6105263157893,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P03",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "metric": null,
+      "accuracy": 0.9375,
+      "rt": 869.3386666666668,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P03",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "metric": 11.508690713929102,
+      "accuracy": 0.975,
+      "rt": 910.5974358974357,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P03",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "metric": 1.1570433126421986,
+      "accuracy": null,
+      "rt": 3311.285,
+      "mae": 4.07697947669295,
+      "bias": -2.124300164174758
+    },
+    {
+      "participant": "P03",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "metric": 2.444073684280477,
+      "accuracy": null,
+      "rt": 4962.914999999999,
+      "mae": 6.187278397964976,
+      "bias": -0.02430016417475578
+    },
+    {
+      "participant": "P03",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "metric": 0.7694592346296079,
+      "accuracy": null,
+      "rt": 3393.7799999999997,
+      "mae": 2.2577237764884215,
+      "bias": -1.1243001641747548
+    },
+    {
+      "participant": "P04",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "metric": 0.9900542208439104,
+      "accuracy": null,
+      "rt": 5047.525000000001,
+      "mae": 3.044997690116175,
+      "bias": 0.1756998358252444
+    },
+    {
+      "participant": "P04",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "metric": 2.4213147275332223,
+      "accuracy": null,
+      "rt": 6146.74,
+      "mae": 7.856238542356555,
+      "bias": 1.425699835825245
+    },
+    {
+      "participant": "P04",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "metric": 0.9141448031461076,
+      "accuracy": null,
+      "rt": 7977.363157894736,
+      "mae": 2.7886076425418937,
+      "bias": -1.203499356058714
+    },
+    {
+      "participant": "P04",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "metric": 5.638660897542576,
+      "accuracy": 0.975,
+      "rt": 1216.1705128205128,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P04",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "metric": null,
+      "accuracy": 0.9125,
+      "rt": 1230.8917808219178,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P04",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "metric": 12.073438176069233,
+      "accuracy": 0.9875,
+      "rt": 906.5215189873418,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P05",
+      "experiment": "visual_search",
+      "variant": "feature_original",
+      "metric": 3.113347894824431,
+      "accuracy": 0.9625,
+      "rt": 758.9428571428572,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P05",
+      "experiment": "visual_search",
+      "variant": "conjunction_original",
+      "metric": null,
+      "accuracy": 0.9125,
+      "rt": 761.7506849315067,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P05",
+      "experiment": "visual_search",
+      "variant": "conjunction_grouped",
+      "metric": 3.0990508681422293,
+      "accuracy": 0.9375,
+      "rt": 814.1813333333333,
+      "mae": null,
+      "bias": null
+    },
+    {
+      "participant": "P05",
+      "experiment": "graphical_judgment",
+      "variant": "bar_original",
+      "metric": 1.0273629658585148,
+      "accuracy": null,
+      "rt": 2609.2599999999993,
+      "mae": 2.7328814991762362,
+      "bias": -1.1243001641747548
+    },
+    {
+      "participant": "P05",
+      "experiment": "graphical_judgment",
+      "variant": "pie_original",
+      "metric": 1.9478014308415852,
+      "accuracy": null,
+      "rt": 3408.905,
+      "mae": 5.291561583475133,
+      "bias": -2.7243001641747577
+    },
+    {
+      "participant": "P05",
+      "experiment": "graphical_judgment",
+      "variant": "pie_aligned_aid",
+      "metric": 0.7290946758777154,
+      "accuracy": null,
+      "rt": 2479.3150000000005,
+      "mae": 2.3564880744377206,
+      "bias": -0.8743001641747556
+    }
+  ],
+  "curveRows": [
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 870.76
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": true,
+      "size": 5,
+      "n": 9,
+      "rt": 1027.6111111111109
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 1110.0800000000002
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 1369.3000000000002
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": false,
+      "size": 1,
+      "n": 9,
+      "rt": 1325.5
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 1348.9099999999999
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1727.05
+    },
+    {
+      "participant": "P01",
+      "variant": "feature_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1369.18
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 757.2
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 5,
+      "n": 9,
+      "rt": 843.7999999999998
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 15,
+      "n": 9,
+      "rt": 1181.8111111111111
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 2456.99
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 1,
+      "n": 9,
+      "rt": 876.3777777777776
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 1152.3999999999999
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1951.7099999999998
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 30,
+      "n": 9,
+      "rt": 3435.3333333333335
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 609.4999999999999
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 894.11
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 15,
+      "n": 9,
+      "rt": 1204.8444444444442
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 30,
+      "n": 9,
+      "rt": 1465.9444444444443
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 714.6400000000001
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 1220.15
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1608.3100000000002
+    },
+    {
+      "participant": "P01",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 2286.1499999999996
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": true,
+      "size": 1,
+      "n": 9,
+      "rt": 630
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": true,
+      "size": 5,
+      "n": 9,
+      "rt": 729.9333333333333
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 773.48
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 766.2700000000002
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 649.03
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 709.62
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1112.17
+    },
+    {
+      "participant": "P02",
+      "variant": "feature_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1036.4099999999999
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 1,
+      "n": 8,
+      "rt": 484.2375
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 563.3399999999999
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 695.3
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 30,
+      "n": 8,
+      "rt": 1118.5
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 632.87
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 881.6400000000001
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1080.3
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 30,
+      "n": 9,
+      "rt": 1376.6444444444444
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 475.39
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 607.73
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 649.7
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 30,
+      "n": 9,
+      "rt": 757.4888888888888
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 537.0400000000001
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 722.7
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 850.5600000000001
+    },
+    {
+      "participant": "P02",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 812.4100000000001
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": true,
+      "size": 1,
+      "n": 9,
+      "rt": 617.9222222222222
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": true,
+      "size": 5,
+      "n": 9,
+      "rt": 778.7666666666667
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 784.55
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": true,
+      "size": 30,
+      "n": 9,
+      "rt": 719.1777777777778
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": false,
+      "size": 1,
+      "n": 9,
+      "rt": 719.1444444444445
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 807.7599999999999
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1253.8100000000002
+    },
+    {
+      "participant": "P03",
+      "variant": "feature_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1644.6100000000001
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 567.32
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 579.8999999999999
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 15,
+      "n": 9,
+      "rt": 890.7777777777778
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 30,
+      "n": 7,
+      "rt": 1052.2
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 1,
+      "n": 9,
+      "rt": 614.9333333333333
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 834.5199999999999
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1108.35
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1338.27
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 545.4100000000001
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 913.22
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 15,
+      "n": 8,
+      "rt": 954.8374999999999
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 991.3399999999999
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 710.2900000000001
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 778.4399999999999
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1034.7800000000002
+    },
+    {
+      "participant": "P03",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1365.31
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": true,
+      "size": 1,
+      "n": 9,
+      "rt": 723.6111111111111
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 886.5600000000001
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 915.85
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 935.4300000000001
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 769.3199999999999
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": false,
+      "size": 5,
+      "n": 9,
+      "rt": 1221.8555555555558
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 2078.4600000000005
+    },
+    {
+      "participant": "P04",
+      "variant": "feature_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 2149.59
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 681.76
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 5,
+      "n": 8,
+      "rt": 823.25
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 1037.94
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 30,
+      "n": 7,
+      "rt": 1700.357142857143
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 1,
+      "n": 8,
+      "rt": 786.6875
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 966.3700000000001
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1547.73
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 2273.51
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 638.31
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 5,
+      "n": 10,
+      "rt": 737.2
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 858.4000000000002
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 30,
+      "n": 9,
+      "rt": 1004.5111111111112
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 797.78
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 777.3099999999998
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1328.16
+    },
+    {
+      "participant": "P04",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1120.3000000000002
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": true,
+      "size": 1,
+      "n": 9,
+      "rt": 556.4333333333334
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": true,
+      "size": 5,
+      "n": 8,
+      "rt": 676.5625
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": true,
+      "size": 15,
+      "n": 10,
+      "rt": 620.3100000000001
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 692.45
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 630.42
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": false,
+      "size": 5,
+      "n": 10,
+      "rt": 709.46
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 1050.48
+    },
+    {
+      "participant": "P05",
+      "variant": "feature_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1098.7
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 1,
+      "n": 10,
+      "rt": 671.9
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 5,
+      "n": 9,
+      "rt": 689.5333333333333
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 15,
+      "n": 9,
+      "rt": 743.8222222222223
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": true,
+      "size": 30,
+      "n": 6,
+      "rt": 990.5
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 550.77
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 5,
+      "n": 9,
+      "rt": 617.588888888889
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 15,
+      "n": 10,
+      "rt": 812.3399999999999
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_original",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1085.62
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 1,
+      "n": 9,
+      "rt": 605.7333333333332
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 5,
+      "n": 9,
+      "rt": 701.9111111111112
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 15,
+      "n": 9,
+      "rt": 738.4888888888888
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": true,
+      "size": 30,
+      "n": 10,
+      "rt": 721.5899999999999
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 1,
+      "n": 10,
+      "rt": 738.8299999999999
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 5,
+      "n": 9,
+      "rt": 824.0111111111111
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 15,
+      "n": 9,
+      "rt": 1125.9444444444443
+    },
+    {
+      "participant": "P05",
+      "variant": "conjunction_grouped",
+      "present": false,
+      "size": 30,
+      "n": 10,
+      "rt": 1049.46
+    }
+  ],
+  "pairedRows": [
+    {
+      "cohort": "all",
+      "participant": "P01",
+      "key": "S-R",
+      "value": 43.30087590835966
+    },
+    {
+      "cohort": "all",
+      "participant": "P01",
+      "key": "S-I",
+      "value": 31.349252787485426
+    },
+    {
+      "cohort": "all",
+      "participant": "P02",
+      "key": "S-R",
+      "value": 17.78106881344649
+    },
+    {
+      "cohort": "all",
+      "participant": "P02",
+      "key": "S-I",
+      "value": 13.120531286403727
+    },
+    {
+      "cohort": "all",
+      "participant": "P03",
+      "key": "S-R",
+      "value": null
+    },
+    {
+      "cohort": "all",
+      "participant": "P03",
+      "key": "S-I",
+      "value": null
+    },
+    {
+      "cohort": "all",
+      "participant": "P04",
+      "key": "S-R",
+      "value": null
+    },
+    {
+      "cohort": "all",
+      "participant": "P04",
+      "key": "S-I",
+      "value": null
+    },
+    {
+      "cohort": "all",
+      "participant": "P05",
+      "key": "S-R",
+      "value": null
+    },
+    {
+      "cohort": "all",
+      "participant": "P05",
+      "key": "S-I",
+      "value": null
+    },
+    {
+      "cohort": "all",
+      "participant": "P01",
+      "key": "G-R",
+      "value": 0.6752914389749507
+    },
+    {
+      "cohort": "all",
+      "participant": "P01",
+      "key": "G-I",
+      "value": 0.45209716767585917
+    },
+    {
+      "cohort": "all",
+      "participant": "P02",
+      "key": "G-R",
+      "value": 0.8895036476628522
+    },
+    {
+      "cohort": "all",
+      "participant": "P02",
+      "key": "G-I",
+      "value": 1.267691849810818
+    },
+    {
+      "cohort": "all",
+      "participant": "P03",
+      "key": "G-R",
+      "value": 1.2870303716382785
+    },
+    {
+      "cohort": "all",
+      "participant": "P03",
+      "key": "G-I",
+      "value": 1.6746144496508693
+    },
+    {
+      "cohort": "all",
+      "participant": "P04",
+      "key": "G-R",
+      "value": 1.4312605066893118
+    },
+    {
+      "cohort": "all",
+      "participant": "P04",
+      "key": "G-I",
+      "value": 1.5071699243871146
+    },
+    {
+      "cohort": "all",
+      "participant": "P05",
+      "key": "G-R",
+      "value": 0.9204384649830704
+    },
+    {
+      "cohort": "all",
+      "participant": "P05",
+      "key": "G-I",
+      "value": 1.2187067549638697
+    }
+  ],
+  "auxiliary": [
+    {
+      "key": "S-I",
+      "field": "accuracy",
+      "n": 5,
+      "values": [
+        -0.025000000000000022,
+        -0.050000000000000044,
+        -0.03749999999999998,
+        -0.07500000000000007,
+        -0.025000000000000022
+      ],
+      "mean": -0.042500000000000024,
+      "sd": 0.020916500663351913,
+      "ci": [
+        -0.06000000000000005,
+        -0.027500000000000014
+      ]
+    },
+    {
+      "key": "S-I",
+      "field": "rt",
+      "n": 5,
+      "values": [
+        333.5494264507429,
+        174.34553586497861,
+        -41.25876923076896,
+        324.370261834576,
+        -52.4306484018266
+      ],
+      "mean": 147.71516130354038,
+      "sd": 188.5603796267369,
+      "ci": [
+        -2.6066598800425025,
+        296.2011495638899
+      ]
+    },
+    {
+      "key": "G-R",
+      "field": "mae",
+      "n": 5,
+      "values": [
+        3.8735660219065804,
+        8.766194955145446,
+        2.110298921272026,
+        4.811240852240379,
+        2.5586800842988966
+      ],
+      "mean": 4.423996166972666,
+      "sd": 2.6523678638114503,
+      "ci": [
+        2.642304806609685,
+        6.644024927789748
+      ]
+    },
+    {
+      "key": "G-R",
+      "field": "rt",
+      "n": 5,
+      "values": [
+        329.0100000000016,
+        2297.8849999999993,
+        1651.6299999999992,
+        1099.2149999999992,
+        799.6450000000009
+      ],
+      "mean": 1235.477,
+      "sd": 763.5596513747297,
+      "ci": [
+        671.3050000000009,
+        1868.9859999999996
+      ]
+    },
+    {
+      "key": "G-I",
+      "field": "mae",
+      "n": 5,
+      "values": [
+        2.6417467352737303,
+        9.684082065299084,
+        3.929554621476554,
+        5.067630899814661,
+        2.9350735090374123
+      ],
+      "mean": 4.8516175661802885,
+      "sd": 2.8638368136910466,
+      "ci": [
+        3.016639022019768,
+        7.382271087770073
+      ]
+    },
+    {
+      "key": "G-I",
+      "field": "rt",
+      "n": 5,
+      "values": [
+        48.63000000000284,
+        2200.1550000000007,
+        1569.1349999999993,
+        -1830.6231578947363,
+        929.5899999999997
+      ],
+      "mean": 583.3773684210532,
+      "sd": 1566.7565616219013,
+      "ci": [
+        -703.0712631578929,
+        1693.6339999999996
+      ]
+    }
+  ]
+}

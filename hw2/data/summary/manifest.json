@@ -1,0 +1,37 @@
+{
+  "project": "W2UGHD",
+  "snapshot": "2026-11-09T19:40:56+08:00",
+  "protocol": "attention-v1.1",
+  "preregistration": "89c427c9b7fbb3895d49f36e48bd8c7e2daca2d5",
+  "files": [
+    {
+      "name": "hw2_W2UGHD_2026-11-09_194056.json",
+      "bytes": 931488,
+      "sha256": "53e52dfdb7c93efb7e8ee0b2fd8928e289218c04852650e35a8b0346cc864880"
+    },
+    {
+      "name": "hw2_W2UGHD_2026-11-09_194054.csv",
+      "bytes": 410624,
+      "sha256": "58d61fcd9cf8b51b56c5540428e0c9288c1d7cf1e60a198bd71b7ec6d0e6dd8d"
+    }
+  ],
+  "records": 10,
+  "retained_records": 10,
+  "participants": 5,
+  "trial_count": 1500,
+  "search_trials": 1200,
+  "graph_trials": 300,
+  "participant_ids": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05"
+  ],
+  "bootstrap": {
+    "samples": 2500,
+    "seed": "effect key S-R/S-I/G-R/G-I",
+    "algorithm": "src/core.js rng/interval; percentile linear interpolation"
+  },
+  "interpretation": "All five participants in the final export form one study sample. Sample scope was revised from the collection plan; trial-quality criteria and primary contrasts remain unchanged."
+}
